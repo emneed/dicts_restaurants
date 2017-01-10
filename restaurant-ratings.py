@@ -16,6 +16,7 @@ def get_user_rating(ratings):
 def get_user_choice(ratings):
     """ """
 
+    print ""
     print("1. View the current ratings list.")
     print("2. Add a new restaurant and rating.")
     print("3. Quit.")
@@ -42,10 +43,11 @@ def rates_restaurants(file_name):
 
     data_file.close()
 
-    ratings = get_user_choice(ratings)
+    while True:
+        ratings = get_user_choice(ratings)
 
-    for place in sorted(ratings):
-        print "{} is rated at {}.".format(place, ratings[place])
+        for place in sorted(ratings):
+            print "{} is rated at {}.".format(place, ratings[place])
 
 
 rates_restaurants(input_file)
