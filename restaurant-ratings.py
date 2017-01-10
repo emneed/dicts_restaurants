@@ -5,15 +5,15 @@ input_file = sys.argv[1]
 
 
 def rates_restaurants(file_name):
-    """Returns alphabetized restuarant ratings"""
+    """Returns alphabetized restaurant ratings"""
 
     data_file = open(file_name)
 
     ratings = {}
     for line in data_file:
         line = line.rstrip()
-        restuarant, score = line.split(":")
-        ratings[restuarant] = score
+        restaurant, score = line.split(":")
+        ratings[restaurant] = score
 
     data_file.close()
 
