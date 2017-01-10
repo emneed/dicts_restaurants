@@ -12,7 +12,8 @@ def get_user_choice(ratings):
     print("1. View the current ratings list.")
     print("2. Add a new restaurant and rating.")
     print("3. Edit a random rating.")
-    print("4. Quit.")
+    print("4. Edit chosen rating.")
+    print("5. Quit.")
     user_choice = raw_input(">>> ")
     print ""
 
@@ -22,6 +23,8 @@ def get_user_choice(ratings):
         return get_user_rating(ratings)
     elif user_choice == "3":
         return edit_random_rating(ratings)
+    elif user_choice == "4":
+        return edit_chosen_rating(ratings)
     else:
         quit()
 
@@ -34,6 +37,21 @@ def edit_random_rating(ratings):
     ratings[edit_place] = int(raw_input("What should the new rating be? "))
     print ""
     return ratings
+
+
+def edit_chosen_rating(ratings):
+    """Allows user to edit specific restaurant rating."""
+
+    chosen_place = raw_input("What restaurant's rating would you like to change? ")
+    if chosen_place in ratings.keys():
+        print("{} is rated as {}.".format(chosen_place, ratings[chosen_place]))
+        ratings[chosen_place] = int(raw_input("What should the new rating be? "))
+    else:
+        print("I don't know the restaurant named {}.".format(chosen_place))
+    print ""
+
+    return ratings
+
 
 
 def get_user_rating(ratings):
