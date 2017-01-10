@@ -76,7 +76,10 @@ def rates_restaurants(file_name):
     ratings = {}
     for line in data_file:
         line = line.rstrip()
-        restaurant, score = line.split(":")
+        tokens = line.split(":")
+
+        restaurant = ":".join(tokens[:-1])
+        score = tokens[-1]
         ratings[restaurant] = score
 
     data_file.close()
